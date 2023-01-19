@@ -48,38 +48,27 @@ export default {
   }),
   methods: {
     searchDebounced() {
-      if (!this.search) {
-        this.entries = [];
-        return;
-      }
       this.isLoading = true;
       if (_searchDebounce) {
         clearTimeout(_searchDebounce);
       }
-      _searchDebounce = setTimeout(() => {
+      _searchDebounce = setTimeout(async () => {
         // Lazily load input items
-
-        requests
-          .search_users(this.search)
-          .then((res) => {
-            this.entries = res.items;
-            console.log(this.entries);
-          })
-          .catch((err) => {
-            console.log(err);
-          })
-          .finally(() => (this.isLoading = false));
-        _searchDebounce = null;
+        const data = await requests.search_users(this.search);
+        this.entries = data.items;
         this.isLoading = false;
-      }, 5000);
+        _searchDebounce = null;
+      }, 1000);
     },
   },
 
   watch: {
     search() {
-      console.log();
+      if (this.search == "") {
+        this.entries = [];
+        return;
+      }
       // Items have already been loaded
-
       if (this.entries.length > 0) return;
 
       // Items have already been requested
