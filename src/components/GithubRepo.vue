@@ -74,6 +74,20 @@
       </v-container>
     </v-container>
     <v-divider v-if="user"></v-divider>
+    <v-container v-if="user" class="issues-selector">
+      <v-row align="center">
+        <v-col cols="12">
+          <v-select
+            v-model="repo"
+            :items="reposlist"
+            item-text="name"
+            :menu-props="{ top: true, offsetY: true }"
+            label="Selecione o repositório"
+            return-object
+          ></v-select>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-card>
 </template>
 <script>
@@ -90,6 +104,8 @@ export default {
     search: null,
     reposlist: [],
     user_data: null,
+    repo: null,
+    issues: null,
   }),
   methods: {
     searchDebounced() {
@@ -123,10 +139,15 @@ export default {
     async user() {
       // replaced in order to implement user details
       // this.user_data = await requests.get_user(this.user);
+      // this.reposlist = await requests.get_repos(this.user);
 
       //user mock
       this.user_data = require("@/assets/user.json");
-      console.log(this.user_data);
+      this.reposlist = require("@/assets/reposlist.json");
+    },
+    async repo() {
+      // this.issues = await requests.get_issues(this.user, this.repo);
+      this.issues = require("@/assets/issues.json");
     },
   },
 };
@@ -183,5 +204,9 @@ h2 {
 }
 h3 {
   margin: 8px 0;
+}
+.issues-selector {
+  display: flex;
+  padding: 32px;
 }
 </style>
