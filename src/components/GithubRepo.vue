@@ -83,19 +83,23 @@
             item-text="name"
             :menu-props="{ top: true, offsetY: true }"
             label="Selecione o repositório"
+            :loading="isLoading"
             return-object
           ></v-select>
         </v-col>
       </v-row>
     </v-container>
+    <IssuesList :issues="issues" v-if="user" />
   </v-card>
 </template>
 <script>
 import { requests } from "@/api/requests.js";
+import IssuesList from "./IssuesList.vue";
 
 let _searchDebounce = null;
 export default {
   name: "GithubRepo",
+  components: { IssuesList },
   data: () => ({
     descriptionLimit: 60,
     entries: [],
@@ -137,17 +141,21 @@ export default {
       this.searchDebounced();
     },
     async user() {
-      // replaced in order to implement user details
-      // this.user_data = await requests.get_user(this.user);
-      // this.reposlist = await requests.get_repos(this.user);
-
+      if (!this.user) {
+        this.search = null;
+        this.isLoading = false;
+      }
+      this.isLoading = true;
+      this.user_data = await requests.get_user(this.user);
+      this.reposlist = await requests.get_repos(this.user);
       //user mock
-      this.user_data = require("@/assets/user.json");
-      this.reposlist = require("@/assets/reposlist.json");
+      // this.user_data = require("@/assets/user.json");
+      // this.reposlist = require("@/assets/reposlist.json");
+      this.isLoading = false;
     },
     async repo() {
-      // this.issues = await requests.get_issues(this.user, this.repo);
-      this.issues = require("@/assets/issues.json");
+      this.issues = await requests.get_issues(this.user, this.repo.name);
+      // this.issues = require("@/assets/issues.json");
     },
   },
 };
