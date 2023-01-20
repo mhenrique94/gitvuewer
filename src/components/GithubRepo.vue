@@ -17,9 +17,23 @@
         item-value="API"
         label="Entre com o nome de usuário"
         placeholder="Digite para buscar"
-        prepend-icon="mdi-database-search"
+        prepend-icon="mdi-account-search"
         return-object
-      ></v-autocomplete>
+      >
+        <template v-slot:item="data">
+          <v-list-item-avatar>
+            <v-img
+              :src="data.item.avatar_url"
+              aspect-ratio="1"
+              width="32px"
+              height="42px"
+            ></v-img>
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title v-html="data.item.login"></v-list-item-title>
+          </v-list-item-content>
+        </template>
+      </v-autocomplete>
     </v-card-text>
     <v-divider></v-divider>
 
