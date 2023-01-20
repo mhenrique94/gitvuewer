@@ -1,49 +1,79 @@
 <template>
-  <v-card color="black lighten-2" dark>
+  <v-card color="black lighten-2 main-container" dark max-width="1000">
     <v-card-title class="text-h5 black lighten-3">
       Procure por repositórios
     </v-card-title>
 
-    <v-card-text>
-      <v-autocomplete
-        v-model="user"
-        :items="entries"
-        :loading="isLoading"
-        :search-input.sync="search"
-        color="white"
-        hide-no-data
-        hide-selected
-        item-text="login"
-        item-value="API"
-        label="Entre com o nome de usuário"
-        placeholder="Digite para buscar"
-        prepend-icon="mdi-account-search"
-        return-object
-      >
-        <template v-slot:item="data">
-          <v-list-item-avatar>
-            <v-img
-              :src="data.item.avatar_url"
-              aspect-ratio="1"
-              width="32px"
-              height="42px"
-            ></v-img>
-          </v-list-item-avatar>
-          <v-list-item-content>
-            <v-list-item-title v-html="data.item.login"></v-list-item-title>
-          </v-list-item-content>
-        </template>
-      </v-autocomplete>
-    </v-card-text>
-    <v-divider></v-divider>
+    <div class="search-area">
+      <v-card-text>
+        <v-autocomplete
+          v-model="user"
+          :items="entries"
+          :loading="isLoading"
+          :search-input.sync="search"
+          color="white"
+          hide-no-data
+          hide-selected
+          item-text="login"
+          item-value="API"
+          label="Entre com o nome de usuário"
+          placeholder="Digite para buscar"
+          prepend-icon="mdi-account-search"
+          filled
+        >
+          <template v-slot:item="data">
+            <v-list-item-avatar>
+              <v-img
+                :src="data.item.avatar_url"
+                aspect-ratio="1"
+                width="32px"
+                height="42px"
+              ></v-img>
+            </v-list-item-avatar>
+            <v-list-item-content>
+              <v-list-item-title v-html="data.item.login"></v-list-item-title>
+            </v-list-item-content>
+          </template>
+        </v-autocomplete>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn :disabled="!user" color="grey darken-3" @click="user = null">
+          Clear
+          <v-icon right> mdi-close-circle </v-icon>
+        </v-btn>
+      </v-card-actions>
+    </div>
 
-    <v-card-actions>
-      <v-spacer></v-spacer>
-      <v-btn :disabled="!user" color="grey darken-3" @click="user = null">
-        Clear
-        <v-icon right> mdi-close-circle </v-icon>
-      </v-btn>
-    </v-card-actions>
+    <v-divider></v-divider>
+    <v-container v-if="user" class="mc-profile">
+      <div class="mcp-overview">
+        <v-img :src="user_data.avatar_url" class="pic"></v-img>
+        <div>@{{ user }}</div>
+        <div class="btn-container">
+          <div disabled class="btn-count">
+            <div>{{ user_data.followers }}</div>
+            <div class="bc-label">Seguidores</div>
+          </div>
+          <div disabled class="btn-count">
+            <div>{{ user_data.following }}</div>
+            <div class="bc-label">Seguindo</div>
+          </div>
+        </div>
+      </div>
+      <v-divider vertical></v-divider>
+      <v-container fluid class="mcp-details">
+        <h2>Detalhes de {{ user }}</h2>
+        <hr />
+        <h3>{{ user_data.name }}</h3>
+        <div>{{ user_data.bio }}</div>
+        <div>{{ user_data.company }}</div>
+        <div>{{ user_data.location }}</div>
+        <div>Membro desde {{ user_data.created_at }}</div>
+        <div>Repositórios: {{ user_data.public_repos }}</div>
+      </v-container>
+    </v-container>
+    <v-divider v-if="user"></v-divider>
   </v-card>
 </template>
 <script>
@@ -59,6 +89,7 @@ export default {
     user: null,
     search: null,
     reposlist: [],
+    user_data: null,
   }),
   methods: {
     searchDebounced() {
@@ -89,6 +120,68 @@ export default {
       if (this.isLoading) return;
       this.searchDebounced();
     },
+    async user() {
+      // replaced in order to implement user details
+      // this.user_data = await requests.get_user(this.user);
+
+      //user mock
+      this.user_data = require("@/assets/user.json");
+      console.log(this.user_data);
+    },
   },
 };
 </script>
+<style scoped>
+.main-container {
+  margin: auto;
+}
+.search-area {
+  display: flex;
+  align-items: baseline;
+  padding: 0 32px;
+}
+.mc-profile {
+  display: flex;
+  gap: 32px;
+  padding: 32px;
+}
+.mcp-overview,
+.mcp-details {
+  display: flex;
+  flex-direction: column;
+}
+.mcp-overview {
+  width: 30%;
+  align-items: center;
+}
+.mcp-overview > .pic {
+  width: 100%;
+  max-width: 132px;
+}
+.btn-container {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+.btn-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 4px;
+  margin: 17px auto;
+}
+.bc-label {
+  font-size: smaller;
+}
+.mcp-details {
+  padding: 0;
+}
+h2 {
+  margin-bottom: 8px;
+}
+h3 {
+  margin: 8px 0;
+}
+</style>
