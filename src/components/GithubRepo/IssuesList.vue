@@ -1,6 +1,5 @@
 <template>
   <v-container class="issues-list">
-    <v-card-title class="text-h5 black lighten-3"> Issues </v-card-title>
     <v-card class="il-card" tile v-for="item in issues" :key="item.id">
       <v-list-item three-line>
         <v-list-item-content>

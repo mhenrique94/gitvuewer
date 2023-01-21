@@ -1,9 +1,5 @@
 <template>
   <v-card color="black lighten-2 main-container" dark max-width="1000">
-    <v-card-title class="text-h5 black lighten-3">
-      Procure por repositórios
-    </v-card-title>
-
     <div class="search-area">
       <v-card-text>
         <v-autocomplete
@@ -89,12 +85,25 @@
         </v-col>
       </v-row>
     </v-container>
-    <IssuesList :issues="issues" v-if="user" />
+    <v-expansion-panels v-if="repo">
+      <v-expansion-panel v-if="issues">
+        <v-expansion-panel-header> <h3>Issues</h3> </v-expansion-panel-header>
+        <v-expansion-panel-content>
+          <IssuesList :issues="issues" />
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+      <v-expansion-panel>
+        <v-expansion-panel-header>
+          <h3>Navegar no código</h3>
+        </v-expansion-panel-header>
+        <v-expansion-panel-content> coisinhas aqui </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
   </v-card>
 </template>
 <script>
 import { requests } from "@/api/requests.js";
-import IssuesList from "./IssuesList.vue";
+import IssuesList from "./GithubRepo/IssuesList.vue";
 
 let _searchDebounce = null;
 export default {
@@ -131,6 +140,7 @@ export default {
     search() {
       if (this.search == "") {
         this.entries = [];
+        this.issues = null;
         return;
       }
       // Items have already been loaded
@@ -148,13 +158,14 @@ export default {
       this.isLoading = true;
       this.user_data = await requests.get_user(this.user);
       this.reposlist = await requests.get_repos(this.user);
-      //user mock
+      //user/repository mock
       // this.user_data = require("@/assets/user.json");
       // this.reposlist = require("@/assets/reposlist.json");
       this.isLoading = false;
     },
     async repo() {
       this.issues = await requests.get_issues(this.user, this.repo.name);
+      //issues mock
       // this.issues = require("@/assets/issues.json");
     },
   },
