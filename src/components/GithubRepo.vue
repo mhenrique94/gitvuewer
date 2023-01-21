@@ -85,7 +85,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-expansion-panels v-if="repo">
+    <v-expansion-panels v-if="repo" accordion>
       <v-expansion-panel v-if="issues">
         <v-expansion-panel-header> <h3>Issues</h3> </v-expansion-panel-header>
         <v-expansion-panel-content>
