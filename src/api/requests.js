@@ -21,4 +21,10 @@ export const requests = {
     );
     return await response.json();
   },
+  async get_files(user_string, repository_string) {
+    const response = await fetch(
+      `https://api.github.com/repos/${user_string}/${repository_string}/contents`
+    );
+    return await response.json();
+  },
 };

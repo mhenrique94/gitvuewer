@@ -1,5 +1,5 @@
 <template>
-  <v-card color="black lighten-2 main-container" dark max-width="1000">
+  <v-card color="lighten-2 main-container" dark max-width="1000">
     <div class="search-area">
       <v-card-text>
         <v-autocomplete
@@ -40,63 +40,71 @@
         </v-btn>
       </v-card-actions>
     </div>
-
     <v-divider></v-divider>
-    <v-container v-if="user" class="mc-profile">
-      <div class="mcp-overview">
-        <v-img :src="user_data.avatar_url" class="pic"></v-img>
-        <div>@{{ user }}</div>
-        <div class="btn-container">
-          <div disabled class="btn-count">
-            <div>{{ user_data.followers }}</div>
-            <div class="bc-label">Seguidores</div>
-          </div>
-          <div disabled class="btn-count">
-            <div>{{ user_data.following }}</div>
-            <div class="bc-label">Seguindo</div>
-          </div>
-        </div>
-      </div>
-      <v-divider vertical></v-divider>
-      <v-container fluid class="mcp-details">
-        <h2>Detalhes de {{ user }}</h2>
-        <hr />
-        <h3>{{ user_data.name }}</h3>
-        <div>{{ user_data.bio }}</div>
-        <div>{{ user_data.company }}</div>
-        <div>{{ user_data.location }}</div>
-        <div>Membro desde {{ user_data.created_at }}</div>
-        <div>Repositórios: {{ user_data.public_repos }}</div>
-      </v-container>
-    </v-container>
-    <v-divider v-if="user"></v-divider>
-    <v-container v-if="user" class="issues-selector">
-      <v-row align="center">
-        <v-col cols="12">
-          <v-select
-            v-model="repo"
-            :items="reposlist"
-            item-text="name"
-            :menu-props="{ top: true, offsetY: true }"
-            label="Selecione o repositório"
-            :loading="isLoading"
-            return-object
-          ></v-select>
-        </v-col>
-      </v-row>
-    </v-container>
-    <v-expansion-panels v-if="repo" accordion>
-      <v-expansion-panel v-if="issues">
+    <v-expansion-panels v-if="user" :value="0" accordion>
+      <v-expansion-panel>
+        <v-expansion-panel-header>
+          <h3>Perfil de {{ user }}</h3>
+        </v-expansion-panel-header>
+        <v-expansion-panel-content>
+          <v-container class="mc-profile">
+            <div class="mcp-overview">
+              <v-img :src="user_data.avatar_url" class="pic"></v-img>
+              <div>@{{ user }}</div>
+              <div class="btn-container">
+                <div disabled class="btn-count">
+                  <div>{{ user_data.followers }}</div>
+                  <div class="bc-label">Seguidores</div>
+                </div>
+                <div disabled class="btn-count">
+                  <div>{{ user_data.following }}</div>
+                  <div class="bc-label">Seguindo</div>
+                </div>
+              </div>
+            </div>
+            <v-divider vertical></v-divider>
+            <v-container fluid class="mcp-details">
+              <h2>Detalhes de {{ user }}</h2>
+              <hr />
+              <h3>{{ user_data.name }}</h3>
+              <div>{{ user_data.bio }}</div>
+              <div>{{ user_data.company }}</div>
+              <div>{{ user_data.location }}</div>
+              <div>Membro desde {{ user_data.created_at }}</div>
+              <div>Repositórios: {{ user_data.public_repos }}</div>
+            </v-container>
+          </v-container>
+          <v-divider v-if="user"></v-divider>
+          <v-container class="issues-selector">
+            <v-row align="center">
+              <v-col cols="12">
+                <v-select
+                  v-model="repo"
+                  :items="reposlist"
+                  item-text="name"
+                  :menu-props="{ top: true, offsetY: true }"
+                  label="Selecione o repositório"
+                  :loading="isLoading"
+                  return-object
+                ></v-select>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+      <v-expansion-panel>
         <v-expansion-panel-header> <h3>Issues</h3> </v-expansion-panel-header>
         <v-expansion-panel-content>
           <IssuesList :issues="issues" />
         </v-expansion-panel-content>
       </v-expansion-panel>
-      <v-expansion-panel>
+      <v-expansion-panel v-if="repo">
         <v-expansion-panel-header>
           <h3>Navegar no código</h3>
         </v-expansion-panel-header>
-        <v-expansion-panel-content> coisinhas aqui </v-expansion-panel-content>
+        <v-expansion-panel-content>
+          <FileExplorer :repoRoot="repoRoot" />
+        </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
   </v-card>
@@ -104,11 +112,12 @@
 <script>
 import { requests } from "@/api/requests.js";
 import IssuesList from "./GithubRepo/IssuesList.vue";
+import FileExplorer from "./GithubRepo/FileExplorer.vue";
 
 let _searchDebounce = null;
 export default {
   name: "GithubRepo",
-  components: { IssuesList },
+  components: { IssuesList, FileExplorer },
   data: () => ({
     descriptionLimit: 60,
     entries: [],
@@ -119,6 +128,7 @@ export default {
     user_data: null,
     repo: null,
     issues: null,
+    panel: [0],
   }),
   methods: {
     searchDebounced() {
@@ -159,14 +169,16 @@ export default {
       this.user_data = await requests.get_user(this.user);
       this.reposlist = await requests.get_repos(this.user);
       //user/repository mock
-      // this.user_data = require("@/assets/user.json");
-      // this.reposlist = require("@/assets/reposlist.json");
+      // this.user_data = require("@/api/mock/user.json");
+      // this.reposlist = require("@/api/mock/reposlist.json");
       this.isLoading = false;
     },
     async repo() {
       this.issues = await requests.get_issues(this.user, this.repo.name);
-      //issues mock
-      // this.issues = require("@/assets/issues.json");
+      // this.repoRoot.push = await requests.get_files(this.user, this.repo.name);
+      //issues/fileexplorer mock
+      // this.issues = require("@/api/mock/issues.json");
+      this.repoRoot = require("@/api/mock/contents.json");
     },
   },
 };

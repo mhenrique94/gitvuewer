@@ -1,0 +1,178 @@
+[
+  {
+    "name": ".eslintrc.js",
+    "path": ".eslintrc.js",
+    "sha": "7a6b5d800ef94bb9010b728b53931293610f2932",
+    "size": 231,
+    "url": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/.eslintrc.js?ref=main",
+    "html_url": "https://github.com/mhenrique94/gitvuewer/blob/main/.eslintrc.js",
+    "git_url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/7a6b5d800ef94bb9010b728b53931293610f2932",
+    "download_url": "https://raw.githubusercontent.com/mhenrique94/gitvuewer/main/.eslintrc.js",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/.eslintrc.js?ref=main",
+      "git": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/7a6b5d800ef94bb9010b728b53931293610f2932",
+      "html": "https://github.com/mhenrique94/gitvuewer/blob/main/.eslintrc.js"
+    }
+  },
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "4fd83104c318bc90b5d436b999f456ca014a4aad",
+    "size": 0,
+    "url": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/.github?ref=main",
+    "html_url": "https://github.com/mhenrique94/gitvuewer/tree/main/.github",
+    "git_url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/4fd83104c318bc90b5d436b999f456ca014a4aad",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/.github?ref=main",
+      "git": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/4fd83104c318bc90b5d436b999f456ca014a4aad",
+      "html": "https://github.com/mhenrique94/gitvuewer/tree/main/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "403adbc1e527906a4aa59558cd582c20bcd1d738",
+    "size": 231,
+    "url": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/.gitignore?ref=main",
+    "html_url": "https://github.com/mhenrique94/gitvuewer/blob/main/.gitignore",
+    "git_url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/403adbc1e527906a4aa59558cd582c20bcd1d738",
+    "download_url": "https://raw.githubusercontent.com/mhenrique94/gitvuewer/main/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/.gitignore?ref=main",
+      "git": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/403adbc1e527906a4aa59558cd582c20bcd1d738",
+      "html": "https://github.com/mhenrique94/gitvuewer/blob/main/.gitignore"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "ceda8264627b31a84b1936eaa3a428f90656f47b",
+    "size": 321,
+    "url": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/README.md?ref=main",
+    "html_url": "https://github.com/mhenrique94/gitvuewer/blob/main/README.md",
+    "git_url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/ceda8264627b31a84b1936eaa3a428f90656f47b",
+    "download_url": "https://raw.githubusercontent.com/mhenrique94/gitvuewer/main/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/README.md?ref=main",
+      "git": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/ceda8264627b31a84b1936eaa3a428f90656f47b",
+      "html": "https://github.com/mhenrique94/gitvuewer/blob/main/README.md"
+    }
+  },
+  {
+    "name": "babel.config.js",
+    "path": "babel.config.js",
+    "sha": "e9558405fdcc02f12d757acb308e02937a7444f1",
+    "size": 73,
+    "url": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/babel.config.js?ref=main",
+    "html_url": "https://github.com/mhenrique94/gitvuewer/blob/main/babel.config.js",
+    "git_url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/e9558405fdcc02f12d757acb308e02937a7444f1",
+    "download_url": "https://raw.githubusercontent.com/mhenrique94/gitvuewer/main/babel.config.js",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/babel.config.js?ref=main",
+      "git": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/e9558405fdcc02f12d757acb308e02937a7444f1",
+      "html": "https://github.com/mhenrique94/gitvuewer/blob/main/babel.config.js"
+    }
+  },
+  {
+    "name": "jsconfig.json",
+    "path": "jsconfig.json",
+    "sha": "4aafc5f6ed86fe6dff8d4b6be59290cbdeb61656",
+    "size": 279,
+    "url": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/jsconfig.json?ref=main",
+    "html_url": "https://github.com/mhenrique94/gitvuewer/blob/main/jsconfig.json",
+    "git_url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/4aafc5f6ed86fe6dff8d4b6be59290cbdeb61656",
+    "download_url": "https://raw.githubusercontent.com/mhenrique94/gitvuewer/main/jsconfig.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/jsconfig.json?ref=main",
+      "git": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/4aafc5f6ed86fe6dff8d4b6be59290cbdeb61656",
+      "html": "https://github.com/mhenrique94/gitvuewer/blob/main/jsconfig.json"
+    }
+  },
+  {
+    "name": "package-lock.json",
+    "path": "package-lock.json",
+    "sha": "55d9fec51697c501e829d97f8edb23d95582ff92",
+    "size": 808655,
+    "url": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/package-lock.json?ref=main",
+    "html_url": "https://github.com/mhenrique94/gitvuewer/blob/main/package-lock.json",
+    "git_url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/55d9fec51697c501e829d97f8edb23d95582ff92",
+    "download_url": "https://raw.githubusercontent.com/mhenrique94/gitvuewer/main/package-lock.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/package-lock.json?ref=main",
+      "git": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/55d9fec51697c501e829d97f8edb23d95582ff92",
+      "html": "https://github.com/mhenrique94/gitvuewer/blob/main/package-lock.json"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "d86d27c15cea05097bbbf01cb7da18069bf3c539",
+    "size": 1053,
+    "url": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/package.json?ref=main",
+    "html_url": "https://github.com/mhenrique94/gitvuewer/blob/main/package.json",
+    "git_url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/d86d27c15cea05097bbbf01cb7da18069bf3c539",
+    "download_url": "https://raw.githubusercontent.com/mhenrique94/gitvuewer/main/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/package.json?ref=main",
+      "git": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/d86d27c15cea05097bbbf01cb7da18069bf3c539",
+      "html": "https://github.com/mhenrique94/gitvuewer/blob/main/package.json"
+    }
+  },
+  {
+    "name": "public",
+    "path": "public",
+    "sha": "24754a62a8cbea65a5c90398d4a5fbd5c8d88f38",
+    "size": 0,
+    "url": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/public?ref=main",
+    "html_url": "https://github.com/mhenrique94/gitvuewer/tree/main/public",
+    "git_url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/24754a62a8cbea65a5c90398d4a5fbd5c8d88f38",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/public?ref=main",
+      "git": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/24754a62a8cbea65a5c90398d4a5fbd5c8d88f38",
+      "html": "https://github.com/mhenrique94/gitvuewer/tree/main/public"
+    }
+  },
+  {
+    "name": "src",
+    "path": "src",
+    "sha": "3dfae615ff6a3b6b4ff9a68de0fcd968bbd81e92",
+    "size": 0,
+    "url": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/src?ref=main",
+    "html_url": "https://github.com/mhenrique94/gitvuewer/tree/main/src",
+    "git_url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/3dfae615ff6a3b6b4ff9a68de0fcd968bbd81e92",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/src?ref=main",
+      "git": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/3dfae615ff6a3b6b4ff9a68de0fcd968bbd81e92",
+      "html": "https://github.com/mhenrique94/gitvuewer/tree/main/src"
+    }
+  },
+  {
+    "name": "vue.config.js",
+    "path": "vue.config.js",
+    "sha": "0ffeaac21073ea3037e7cf5b53a92a303fc14c89",
+    "size": 148,
+    "url": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/vue.config.js?ref=main",
+    "html_url": "https://github.com/mhenrique94/gitvuewer/blob/main/vue.config.js",
+    "git_url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/0ffeaac21073ea3037e7cf5b53a92a303fc14c89",
+    "download_url": "https://raw.githubusercontent.com/mhenrique94/gitvuewer/main/vue.config.js",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/mhenrique94/gitvuewer/contents/vue.config.js?ref=main",
+      "git": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/0ffeaac21073ea3037e7cf5b53a92a303fc14c89",
+      "html": "https://github.com/mhenrique94/gitvuewer/blob/main/vue.config.js"
+    }
+  }
+]
