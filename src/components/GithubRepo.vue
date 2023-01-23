@@ -92,7 +92,7 @@
           </v-container>
         </v-expansion-panel-content>
       </v-expansion-panel>
-      <v-expansion-panel>
+      <v-expansion-panel v-if="repo">
         <v-expansion-panel-header> <h3>Issues</h3> </v-expansion-panel-header>
         <v-expansion-panel-content>
           <IssuesList :issues="issues" />
@@ -100,10 +100,10 @@
       </v-expansion-panel>
       <v-expansion-panel v-if="repo">
         <v-expansion-panel-header>
-          <h3>Navegar no código</h3>
+          <h3>Navegar no código de {{ repo.name }}</h3>
         </v-expansion-panel-header>
         <v-expansion-panel-content>
-          <FileExplorer :repoRoot="repoRoot" />
+          <FileExplorer :repoRoot="repoRoot" :user="user" :repo="repo" />
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -130,6 +130,10 @@ export default {
     issues: null,
     panel: [0],
   }),
+  mounted() {
+    //for api mock
+    this.user = "mhenrique94";
+  },
   methods: {
     searchDebounced() {
       this.isLoading = true;
@@ -166,18 +170,18 @@ export default {
         this.isLoading = false;
       }
       this.isLoading = true;
-      this.user_data = await requests.get_user(this.user);
-      this.reposlist = await requests.get_repos(this.user);
+      // this.user_data = await requests.get_user(this.user);
+      // this.reposlist = await requests.get_repos(this.user);
       //user/repository mock
-      // this.user_data = require("@/api/mock/user.json");
-      // this.reposlist = require("@/api/mock/reposlist.json");
+      this.user_data = require("@/api/mock/user.json");
+      this.reposlist = require("@/api/mock/reposlist.json");
       this.isLoading = false;
     },
     async repo() {
-      this.issues = await requests.get_issues(this.user, this.repo.name);
+      // this.issues = await requests.get_issues(this.user, this.repo.name);
       // this.repoRoot.push = await requests.get_files(this.user, this.repo.name);
       //issues/fileexplorer mock
-      // this.issues = require("@/api/mock/issues.json");
+      this.issues = require("@/api/mock/issues.json");
       this.repoRoot = require("@/api/mock/contents.json");
     },
   },
