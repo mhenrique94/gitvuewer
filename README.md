@@ -24,3 +24,5 @@ npm run serve
 6. Visualização das issues abertas no repositório com link para visualização na plataforma Github
 
 ### Captura de tela:
+
+![Captura de Tela do aplicativo em funcioanamento](https://github.com/mhenrique94/gitvuewer/blob/main/src/assets/pv_gitvuewer.jpg "Captura de Tela do aplicativo em funcioanamento").
