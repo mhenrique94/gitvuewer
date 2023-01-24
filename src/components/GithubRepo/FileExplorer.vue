@@ -17,7 +17,7 @@
           <v-list-item-title>{{ el.path }} </v-list-item-title>
         </v-list-item>
       </v-list>
-      <v-content v-if="file">{{ file }}</v-content>
+      <pre v-if="file" class="file-content"><code>{{ file }}</code></pre>
     </v-container>
   </v-container>
 </template>
@@ -26,14 +26,14 @@ import { requests } from "@/api/requests.js";
 
 export default {
   name: "FileExplorer",
-  props: ["repoRoot", "repo"],
+  props: ["repoRoot"],
   data() {
     return {
       url: "@root",
       file: "",
       newDir: [],
       pathArray: [],
-      lastAccessedItem: "",
+      lastAccessedItem: [],
     };
   },
   mounted() {
@@ -41,19 +41,28 @@ export default {
   },
   methods: {
     back() {
-      if (this.pathArray.length == 0) {
+      if (this.pathArray.length == 1) {
         this.file = null;
         this.newDir = this.repoRoot;
-        this.url = this.url.replace(this.lastAccessedItem, "");
+        this.url = this.url.replace(
+          this.url.substring(this.url.lastIndexOf("/")),
+          ""
+        );
+        this.pathArray.pop();
+        this.lastAccessedItem = [];
         return;
       }
       this.file = null;
+      this.url = this.url.replace(
+        this.url.substring(this.url.lastIndexOf("/")),
+        ""
+      );
       this.newDir = this.pathArray.pop();
-      this.url = this.url.replace(this.lastAccessedItem, "");
     },
     async loadContent(clicked_element) {
-      this.url += this.getLastItem(clicked_element.path);
+      this.url += this.getLastItem(clicked_element);
       if (clicked_element.type == "file") {
+        this.pathArray.push(this.newDir);
         await requests
           .get_file(clicked_element.git_url)
           .then((data) => (this.file = data));
@@ -69,22 +78,26 @@ export default {
         await requests
           .get_dir(clicked_element.url)
           .then((data) => (this.newDir = data));
-      } else {
+      }
+      if (clicked_element.type == "blob") {
+        this.pathArray.push(this.newDir);
         await requests
           .get_blob(clicked_element.url)
           .then((data) => (this.file = data));
       }
     },
     getLastItem(item) {
-      this.lastAccessedItem = `/${item}`;
-      return this.lastAccessedItem;
+      if (item.type != "blob" && item.type != "file") {
+        this.lastAccessedItem.push(`/${item.path}`);
+      }
+      return `/${item.path}`;
     },
   },
   watch: {
     newDir() {
       this.files = null;
     },
-    repo() {
+    repoRoot() {
       this.files = null;
       this.newDir = this.repoRoot;
       this.oldDir = this.halfWay = [];
@@ -96,5 +109,20 @@ export default {
 .navigation_control {
   display: flex;
   align-items: center;
+}
+pre {
+  background: #141313;
+  border-left: 3px solid #8b8b8b;
+  color: rgb(243, 243, 243);
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 1.5em;
+  display: block;
+  word-wrap: break-word;
 }
 </style>

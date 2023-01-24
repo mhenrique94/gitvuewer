@@ -103,7 +103,7 @@
           <h3>Navegar no código de {{ repo.name }}</h3>
         </v-expansion-panel-header>
         <v-expansion-panel-content>
-          <FileExplorer :repoRoot="repoRoot" :user="user" :repo="repo" />
+          <FileExplorer :repoRoot="repoRoot" :user="user" />
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -129,10 +129,11 @@ export default {
     repo: null,
     issues: null,
     panel: [0],
+    repoRoot: [],
   }),
   mounted() {
     //for api mock
-    this.user = "mhenrique94";
+    // this.user = "mhenrique94";
   },
   methods: {
     searchDebounced() {
@@ -170,19 +171,19 @@ export default {
         this.isLoading = false;
       }
       this.isLoading = true;
-      // this.user_data = await requests.get_user(this.user);
-      // this.reposlist = await requests.get_repos(this.user);
+      this.user_data = await requests.get_user(this.user);
+      this.reposlist = await requests.get_repos(this.user);
       //user/repository mock
-      this.user_data = require("@/api/mock/user.json");
-      this.reposlist = require("@/api/mock/reposlist.json");
+      // this.user_data = require("@/api/mock/user.json");
+      // this.reposlist = require("@/api/mock/reposlist.json");
       this.isLoading = false;
     },
     async repo() {
-      // this.issues = await requests.get_issues(this.user, this.repo.name);
-      // this.repoRoot.push = await requests.get_files(this.user, this.repo.name);
+      this.issues = await requests.get_issues(this.user, this.repo.name);
+      this.repoRoot = await requests.get_files(this.user, this.repo.name);
       //issues/fileexplorer mock
-      this.issues = require("@/api/mock/issues.json");
-      this.repoRoot = require("@/api/mock/contents.json");
+      // this.issues = require("@/api/mock/issues.json");
+      // this.repoRoot = require("@/api/mock/contents.json");
     },
   },
 };
