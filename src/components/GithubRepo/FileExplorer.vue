@@ -44,6 +44,7 @@ export default {
       if (this.pathArray.length == 0) {
         this.file = null;
         this.newDir = this.repoRoot;
+        this.url = this.url.replace(this.lastAccessedItem, "");
         return;
       }
       this.file = null;
