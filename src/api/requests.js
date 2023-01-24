@@ -39,4 +39,10 @@ export const requests = {
       .then((d) => d.tree);
     return data;
   },
+  async get_blob(blob_url) {
+    let data = await fetch(blob_url)
+      .then((d) => d.json())
+      .then((d) => atob(d.content));
+    return data;
+  },
 };

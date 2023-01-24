@@ -33,6 +33,7 @@ export default {
       file: "",
       newDir: [],
       pathArray: [],
+      lastAccessedItem: "",
     };
   },
   mounted() {
@@ -47,9 +48,10 @@ export default {
       }
       this.file = null;
       this.newDir = this.pathArray.pop();
+      this.url = this.url.replace(this.lastAccessedItem, "");
     },
     async loadContent(clicked_element) {
-      this.url += `/${clicked_element.path}`;
+      this.url += this.getLastItem(clicked_element.path);
       if (clicked_element.type == "file") {
         await requests
           .get_file(clicked_element.git_url)
@@ -66,7 +68,15 @@ export default {
         await requests
           .get_dir(clicked_element.url)
           .then((data) => (this.newDir = data));
+      } else {
+        await requests
+          .get_blob(clicked_element.url)
+          .then((data) => (this.file = data));
       }
+    },
+    getLastItem(item) {
+      this.lastAccessedItem = `/${item}`;
+      return this.lastAccessedItem;
     },
   },
   watch: {
