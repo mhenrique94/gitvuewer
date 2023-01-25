@@ -17,6 +17,9 @@
     </v-app-bar>
 
     <v-main>
+      <div class="container-img">
+        <img contain :src="require('@/assets/logo.png')" alt="gitvuewer logo" />
+      </div>
       <v-container>
         <VuewerBase />
       </v-container>
@@ -51,5 +54,13 @@ export default {
 }
 .github-logo {
   width: 48px;
+}
+.container-img {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

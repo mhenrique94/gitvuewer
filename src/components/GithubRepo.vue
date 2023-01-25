@@ -190,7 +190,7 @@ export default {
 </script>
 <style scoped>
 .main-container {
-  margin: auto;
+  margin: 24px auto;
 }
 .search-area {
   display: flex;

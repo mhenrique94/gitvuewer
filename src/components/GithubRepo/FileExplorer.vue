@@ -4,16 +4,21 @@
       <v-btn @click="back()" v-if="pathArray.length > 0 || file"
         ><v-icon>mdi-arrow-left-thick</v-icon></v-btn
       >
-      <v-card-text>{{ url }}</v-card-text>
+      <v-card-text class="tree_path">{{ url }}</v-card-text>
     </v-sheet>
-    <v-container>
-      <v-list v-if="!file">
+    <v-container class="file-navigation">
+      <v-list v-if="!file" class="list-body">
         <v-list-item
           v-for="el in newDir"
           :key="el.path"
           @click="loadContent(el)"
+          class="list-item"
         >
-          <v-icon> {{ el.type == "file" ? "mdi-file" : "mdi-folder" }}</v-icon>
+          <v-icon>
+            {{
+              el.type == "file" || el.type == "blob" ? "mdi-file" : "mdi-folder"
+            }}</v-icon
+          >
           <v-list-item-title>{{ el.path }} </v-list-item-title>
         </v-list-item>
       </v-list>
@@ -124,5 +129,25 @@ pre {
   padding: 1em 1.5em;
   display: block;
   word-wrap: break-word;
+}
+.tree_path {
+  border-bottom: 4px solid #1e1e1e;
+  color: rgb(240, 240, 240);
+  background-color: #171717;
+  font-size: 10pt;
+  font-family: monospace;
+  box-shadow: rgb(13 13 15 / 25%) 0px 30px 60px -12px inset,
+    rgb(31 31 31 / 30%) 0px 18px 36px -18px inset;
+}
+.list-item {
+  display: flex;
+  gap: 8px;
+  background-color: transparent;
+}
+.file-navigation {
+  background-color: #171717 !important;
+}
+.list-body {
+  background-color: transparent !important;
 }
 </style>
