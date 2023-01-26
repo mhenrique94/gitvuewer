@@ -70,7 +70,7 @@
               <div>{{ user_data.bio }}</div>
               <div>{{ user_data.company }}</div>
               <div>{{ user_data.location }}</div>
-              <div>Membro desde {{ user_data.created_at }}</div>
+              <div>Membro desde {{ user_data.created_at | formatDate }}</div>
               <div>Repositórios: {{ user_data.public_repos }}</div>
             </v-container>
           </v-container>
@@ -103,7 +103,25 @@
           <h3>Navegar no código de {{ repo.name }}</h3>
         </v-expansion-panel-header>
         <v-expansion-panel-content>
-          <FileExplorer :repoRoot="repoRoot" :user="user" />
+          <NavigationDrawer
+            class="suspendMenu"
+            @show="
+              (receives) => {
+                switchContent = receives;
+              }
+            "
+          />
+          <FileExplorer
+            v-if="switchContent == 'listShow'"
+            :repoRoot="repoRoot"
+            :user="user"
+          />
+          <TreeExplorer
+            v-if="switchContent == 'treeShow'"
+            :user="user"
+            :repo="repo"
+            :repoRoot="repoRoot"
+          />
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -113,11 +131,21 @@
 import { requests } from "@/api/requests.js";
 import IssuesList from "./GithubRepo/IssuesList.vue";
 import FileExplorer from "./GithubRepo/FileExplorer.vue";
+import TreeExplorer from "./GithubRepo/TreeExplorer.vue";
+import NavigationDrawer from "./GithubRepo/NavigationDrawer.vue";
+import moment from "moment";
+import Vue from "vue";
+
+Vue.filter("formatDate", function (value) {
+  if (value) {
+    return moment(String(value)).format("MM/DD/YYYY");
+  }
+});
 
 let _searchDebounce = null;
 export default {
   name: "GithubRepo",
-  components: { IssuesList, FileExplorer },
+  components: { IssuesList, FileExplorer, TreeExplorer, NavigationDrawer },
   data: () => ({
     descriptionLimit: 60,
     entries: [],
@@ -130,6 +158,7 @@ export default {
     issues: null,
     panel: [0],
     repoRoot: [],
+    switchContent: "treeShow",
   }),
   mounted() {
     //for api mock

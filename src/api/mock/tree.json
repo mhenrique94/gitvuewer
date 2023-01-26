@@ -1,0 +1,293 @@
+{
+  "sha": "36b75dc4cbf5d9e2fa739e5c77915b1eb1c4373f",
+  "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/36b75dc4cbf5d9e2fa739e5c77915b1eb1c4373f",
+  "tree": [
+    {
+      "path": ".eslintrc.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a6b5d800ef94bb9010b728b53931293610f2932",
+      "size": 231,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/7a6b5d800ef94bb9010b728b53931293610f2932"
+    },
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4fd83104c318bc90b5d436b999f456ca014a4aad",
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/4fd83104c318bc90b5d436b999f456ca014a4aad"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fd214d96f03c4149ec4a9cbf25c45bba0ceb92e0",
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/fd214d96f03c4149ec4a9cbf25c45bba0ceb92e0"
+    },
+    {
+      "path": ".github/workflows/deploy.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "021fc9fe1a06a6963bb16b3c31aaecebd5b57141",
+      "size": 602,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/021fc9fe1a06a6963bb16b3c31aaecebd5b57141"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "403adbc1e527906a4aa59558cd582c20bcd1d738",
+      "size": 231,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/403adbc1e527906a4aa59558cd582c20bcd1d738"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4196d69c591ab48a467342fd4da5565b7fcbdc4c",
+      "size": 1313,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/4196d69c591ab48a467342fd4da5565b7fcbdc4c"
+    },
+    {
+      "path": "babel.config.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9558405fdcc02f12d757acb308e02937a7444f1",
+      "size": 73,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/e9558405fdcc02f12d757acb308e02937a7444f1"
+    },
+    {
+      "path": "jsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4aafc5f6ed86fe6dff8d4b6be59290cbdeb61656",
+      "size": 279,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/4aafc5f6ed86fe6dff8d4b6be59290cbdeb61656"
+    },
+    {
+      "path": "package-lock.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "55d9fec51697c501e829d97f8edb23d95582ff92",
+      "size": 808655,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/55d9fec51697c501e829d97f8edb23d95582ff92"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d86d27c15cea05097bbbf01cb7da18069bf3c539",
+      "size": 1053,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/d86d27c15cea05097bbbf01cb7da18069bf3c539"
+    },
+    {
+      "path": "public",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "24754a62a8cbea65a5c90398d4a5fbd5c8d88f38",
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/24754a62a8cbea65a5c90398d4a5fbd5c8d88f38"
+    },
+    {
+      "path": "public/favicon.ico",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e22e2ad1d2549954ae22ef001d8272f30a3dacf",
+      "size": 4286,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/0e22e2ad1d2549954ae22ef001d8272f30a3dacf"
+    },
+    {
+      "path": "public/index.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc5146586471e7374928fe4ad371074d9d1dcfeb",
+      "size": 832,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/bc5146586471e7374928fe4ad371074d9d1dcfeb"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b7c5bcd3e47af2e17c8e834073a42ef2eb11b7e3",
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/b7c5bcd3e47af2e17c8e834073a42ef2eb11b7e3"
+    },
+    {
+      "path": "src/App.vue",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9e112beef8f496da9ee2ccc05b329cd7b7647bf0",
+      "size": 1280,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/9e112beef8f496da9ee2ccc05b329cd7b7647bf0"
+    },
+    {
+      "path": "src/api",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f9e6d8d505b150a40af92d3a01003bace5360f11",
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/f9e6d8d505b150a40af92d3a01003bace5360f11"
+    },
+    {
+      "path": "src/api/mock",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ecca55bb11b05f021183c7f9825357eb93ffd47d",
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/ecca55bb11b05f021183c7f9825357eb93ffd47d"
+    },
+    {
+      "path": "src/api/mock/contents.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa7d6a89c452ca7fd33b482e684e8e21b2501264",
+      "size": 9291,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/aa7d6a89c452ca7fd33b482e684e8e21b2501264"
+    },
+    {
+      "path": "src/api/mock/issues.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c7685527b64e3fbf08998bf58d658eabb1b3e856",
+      "size": 10830,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/c7685527b64e3fbf08998bf58d658eabb1b3e856"
+    },
+    {
+      "path": "src/api/mock/reposlist.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a89c73e3abc1575e804c617df348635c0f621b6a",
+      "size": 183564,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/a89c73e3abc1575e804c617df348635c0f621b6a"
+    },
+    {
+      "path": "src/api/mock/user.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "51570c2de048b39fb741572cd53ebb2a74b0f00d",
+      "size": 1469,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/51570c2de048b39fb741572cd53ebb2a74b0f00d"
+    },
+    {
+      "path": "src/api/requests.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e5c93ab72bb0957a57994f06d45f0c534e7346b",
+      "size": 1406,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/5e5c93ab72bb0957a57994f06d45f0c534e7346b"
+    },
+    {
+      "path": "src/assets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "780b48fbf5d8404ebce83cda26af47f49568cd12",
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/780b48fbf5d8404ebce83cda26af47f49568cd12"
+    },
+    {
+      "path": "src/assets/github-mark-white.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50b81752278d084ba9d449fff25f4051df162b0f",
+      "size": 4837,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/50b81752278d084ba9d449fff25f4051df162b0f"
+    },
+    {
+      "path": "src/assets/logo.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01e5a0240b5f5a7ef2651d0a1ec3aa08404cf190",
+      "size": 33399,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/01e5a0240b5f5a7ef2651d0a1ec3aa08404cf190"
+    },
+    {
+      "path": "src/assets/logo.svg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "145b6d13089c81fcb16f68ad8f976e389dcd77e3",
+      "size": 539,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/145b6d13089c81fcb16f68ad8f976e389dcd77e3"
+    },
+    {
+      "path": "src/assets/pv_gitvuewer.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "856e26ca72f1239bffedb49de8e042d87835d780",
+      "size": 43337,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/856e26ca72f1239bffedb49de8e042d87835d780"
+    },
+    {
+      "path": "src/components",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e445f50cbbad62277fbb559270bd10a9d46c0b2f",
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/e445f50cbbad62277fbb559270bd10a9d46c0b2f"
+    },
+    {
+      "path": "src/components/GithubRepo.vue",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "01a1ac78ffabf759d7690bdba024a9ee6e84ddde",
+      "size": 6960,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/01a1ac78ffabf759d7690bdba024a9ee6e84ddde"
+    },
+    {
+      "path": "src/components/GithubRepo",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cc9e0ddd8ba68f6838afe0bc1d9db73eaf4be563",
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/cc9e0ddd8ba68f6838afe0bc1d9db73eaf4be563"
+    },
+    {
+      "path": "src/components/GithubRepo/FileExplorer.vue",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0f73ad6ecd16b52f379f26281628572c7dcc288",
+      "size": 3905,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/a0f73ad6ecd16b52f379f26281628572c7dcc288"
+    },
+    {
+      "path": "src/components/GithubRepo/IssuesList.vue",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3965fa361603a5ebf3028c3366448898876e8fd4",
+      "size": 1408,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/3965fa361603a5ebf3028c3366448898876e8fd4"
+    },
+    {
+      "path": "src/components/VuewerBase.vue",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c8218752cf0dae5c2cc0a2d33ecd83b2cd80131",
+      "size": 174,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/3c8218752cf0dae5c2cc0a2d33ecd83b2cd80131"
+    },
+    {
+      "path": "src/main.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f26f40875857fd4af66ecab01481f35cc3a28819",
+      "size": 186,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/f26f40875857fd4af66ecab01481f35cc3a28819"
+    },
+    {
+      "path": "src/plugins",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "62114f99c16a2b3aa95475acf26d966cb07d689f",
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/trees/62114f99c16a2b3aa95475acf26d966cb07d689f"
+    },
+    {
+      "path": "src/plugins/vuetify.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5bdec19d1a8c8e4395954fc6a48ec15f6d9e3859",
+      "size": 121,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/5bdec19d1a8c8e4395954fc6a48ec15f6d9e3859"
+    },
+    {
+      "path": "vue.config.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ffeaac21073ea3037e7cf5b53a92a303fc14c89",
+      "size": 148,
+      "url": "https://api.github.com/repos/mhenrique94/gitvuewer/git/blobs/0ffeaac21073ea3037e7cf5b53a92a303fc14c89"
+    }
+  ],
+  "truncated": false
+}
