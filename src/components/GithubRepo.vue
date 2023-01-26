@@ -70,7 +70,7 @@
               <div>{{ user_data.bio }}</div>
               <div>{{ user_data.company }}</div>
               <div>{{ user_data.location }}</div>
-              <div>Membro desde {{ user_data.created_at | formatDate }}</div>
+              <div>Membro desde: {{ user_data.created_at | formatDate }}</div>
               <div>Repositórios: {{ user_data.public_repos }}</div>
             </v-container>
           </v-container>

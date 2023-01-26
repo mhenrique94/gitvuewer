@@ -5,13 +5,14 @@
       <pre v-if="file" class="file-content">{{ file }}</pre>
     </div>
     <v-treeview
+      :active.sync="active"
       :items="newArray"
       activatable
       color="white"
-      item-children="children"
       item-key="sha"
       open-on-click
       :key="componentKey"
+      hoverable
     >
       <template v-slot:label="{ item }">
         <div @click="loadContent(item)">
@@ -34,23 +35,26 @@ export default {
   name: "TreeExplorer",
   props: ["repo", "user", "repoRoot"],
   data: () => ({
-    open: [],
+    actual: [],
     file: null,
     active: [],
     index: null,
     newArray: [],
     componentKey: 0,
+    open: [],
   }),
   async created() {
     this.newArray = this.repoRoot;
-    for (let each of this.newArray) {
+    for (var each of this.newArray) {
       if (each.type == "dir" || each.type == "tree") {
-        let index = this.newArray.indexOf(each);
-        await this.loadContent(each).then(
-          () => (this.newArray[index].children = this.open)
-        );
+        each.children = [];
+        // let index = this.newArray.indexOf(each);
+        await this.loadContent(each);
+        if (this.actual.length != 0) {
+          each.children = this.actual;
+          this.actual = [];
+        }
       }
-      this.open = [];
     }
     this.reRender();
   },
@@ -58,11 +62,9 @@ export default {
     selected() {
       if (!this.active.length) return undefined;
 
-      const id = this.active[0];
+      const id = this.active[0].sha;
 
-      return this.repoRoot.indexOf(
-        this.repoRoot.find((repoId) => repoId.sha === id)
-      );
+      return this.newArray.find((repoId) => repoId.sha === id);
     },
   },
   methods: {
@@ -73,24 +75,32 @@ export default {
           .then((data) => (this.file = data));
       }
       if (item.type == "dir") {
-        await requests.get_dir(item.git_url).then((data) => (this.open = data));
+        item.children = [];
+        await requests.get_dir(item.git_url).then((data) => {
+          (this.actual = data), (item.children = data);
+        });
       }
       if (item.type == "tree") {
-        await requests.get_dir(item.url).then((data) => (this.open = data));
+        item.children = [];
+        await requests.get_dir(item.url).then((data) => {
+          (this.actual = data), (item.children = data);
+        });
       }
       if (item.type == "blob") {
         await requests.get_blob(item.url).then((data) => (this.file = data));
       }
+
+      // this.reRender();
     },
     reRender() {
       this.componentKey += 1;
     },
   },
-  // watch: {
-  //   open() {
-  //     this.newArray[this.selected].children = this.open;
-  //   },
-  // },
+  watch: {
+    repo() {
+      this.reRender();
+    },
+  },
 };
 </script>
 <style scoped>
