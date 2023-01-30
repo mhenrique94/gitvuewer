@@ -44,6 +44,7 @@ export default {
     open: [],
   }),
   async created() {
+    this.reRender();
     this.newArray = this.repoRoot;
     for (var each of this.newArray) {
       if (each.type == "dir" || each.type == "tree") {
@@ -69,6 +70,7 @@ export default {
   },
   methods: {
     async loadContent(item) {
+      this.reRender();
       if (item.type == "file") {
         await requests
           .get_file(item.git_url)
@@ -98,6 +100,9 @@ export default {
   },
   watch: {
     repo() {
+      this.reRender();
+    },
+    repoRoot() {
       this.reRender();
     },
   },

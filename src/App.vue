@@ -6,7 +6,7 @@
       /></v-app-bar-title>
       <v-toolbar-title>gitVuewer</v-toolbar-title>
       <v-spacer></v-spacer>
-      <a href="https://github.com/mhenrique94">
+      <a href="https://github.com/mhenrique94" target="_blank">
         <img
           contain
           :src="require('@/assets/github-mark-white.png')"

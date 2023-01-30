@@ -1,5 +1,5 @@
 <template>
-  <v-container class="issues-list">
+  <v-container class="issues-list" :key="componentKey">
     <v-card class="il-card" tile v-for="item in issues" :key="item.id">
       <v-list-item three-line>
         <v-list-item-content>
@@ -27,6 +27,21 @@
 export default {
   name: "IssuesList",
   props: ["issues"],
+  data: () => {
+    return {
+      componentKey: 0,
+    };
+  },
+  watch: {
+    issues() {
+      this.reRender();
+    },
+  },
+  methods: {
+    reRender() {
+      this.componentKey += 1;
+    },
+  },
 };
 </script>
 <style scoped>

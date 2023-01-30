@@ -42,6 +42,7 @@
     </div>
     <v-divider></v-divider>
     <v-expansion-panels v-if="user" :value="0" accordion>
+      <ProgressArea v-if="isLoading" />
       <v-expansion-panel>
         <v-expansion-panel-header>
           <h3>Perfil de {{ user }}</h3>
@@ -133,6 +134,7 @@ import IssuesList from "./GithubRepo/IssuesList.vue";
 import FileExplorer from "./GithubRepo/FileExplorer.vue";
 import TreeExplorer from "./GithubRepo/TreeExplorer.vue";
 import NavigationDrawer from "./GithubRepo/NavigationDrawer.vue";
+import ProgressArea from "./GithubRepo/ProgressArea.vue";
 import moment from "moment";
 import Vue from "vue";
 
@@ -145,7 +147,13 @@ Vue.filter("formatDate", function (value) {
 let _searchDebounce = null;
 export default {
   name: "GithubRepo",
-  components: { IssuesList, FileExplorer, TreeExplorer, NavigationDrawer },
+  components: {
+    IssuesList,
+    FileExplorer,
+    TreeExplorer,
+    NavigationDrawer,
+    ProgressArea,
+  },
   data: () => ({
     descriptionLimit: 60,
     entries: [],
@@ -198,6 +206,7 @@ export default {
       if (!this.user) {
         this.search = null;
         this.isLoading = false;
+        this.reposlist = this.entries = this.issues = [];
       }
       this.isLoading = true;
       this.user_data = await requests.get_user(this.user);
@@ -208,11 +217,15 @@ export default {
       this.isLoading = false;
     },
     async repo() {
+      this.isLoading = true;
+      this.switchContent = null;
       this.issues = await requests.get_issues(this.user, this.repo.name);
       this.repoRoot = await requests.get_files(this.user, this.repo.name);
       //issues/fileexplorer mock
       // this.issues = require("@/api/mock/issues.json");
       // this.repoRoot = require("@/api/mock/contents.json");
+      this.switchContent = "treeShow";
+      this.isLoading = false;
     },
   },
 };
